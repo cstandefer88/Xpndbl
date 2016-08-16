@@ -1,7 +1,5 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import SomeComponent from './components/some_component';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import NewMonth from './components/new-month';
 
-// ReactDOM.render(<SomeComponent />, document.getElementById('some-id'));
-
-console.log('herro');
+ReactDOM.render(<NewMonth />, document.getElementById('app'));
