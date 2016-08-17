@@ -14,8 +14,14 @@ class ResultsContainer extends React.Component {
   render(){
     return(
       <div>
-        <DateIncomeChoice date={ this.props.date }  income={ this.props.income } />
-        <ExpenseFormChoice category={ this.props.category } descriptor={ this.props.descriptor } amount={ this.props.amount } currentCategory={ this.props.currentCategory } />
+        <div>
+          <h1>Form for: { this.props.date }</h1>
+          <DateIncomeChoice date={ this.props.date }  income={ this.props.income } />
+        </div>
+        <div>
+          <h2>Expenses</h2>
+          <ExpenseFormChoice categories={ this.props.categories } expenseItems={ this.props.expenseItems } />
+        </div>
         <Submit />
       </div>
     );

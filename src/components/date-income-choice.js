@@ -11,8 +11,7 @@ class DateIncomeChoice extends React.Component {
   render(){
     return(
       <div>
-        <h3> Month & Year: { this.props.date } </h3>
-        <h3> Income: ${ this.props.income } </h3>
+        <h2>Income: ${ this.props.income }</h2>
       </div>
     );
   }

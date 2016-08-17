@@ -11,10 +11,19 @@ class NewMonth extends React.Component {
     this.state = {
       date: null,
       income: null,
-      category: [],
-      descriptor: [],
-      amount: [],
-      currentCategory: null
+      categories: [
+        "Housing",
+        "Utilities",
+        "Food",
+        "Clothing",
+        "Transportation",
+        "Medical and Health",
+        "Insurance",
+        "Personal",
+        "Recreation",
+        "Debt Payments"
+      ],
+      expenseItems: []
     }
   }
 
@@ -27,19 +36,13 @@ class NewMonth extends React.Component {
   }
 
 
-  _expenseUpdate(category, descriptor, amount){
-    var categoryArray = this.state.category;
-    var descriptorArray = this.state.descriptor;
-    var amountArray = this.state.amount;
-
-    categoryArray.push(category);
-    descriptorArray.push(descriptor);
-    amountArray.push(amount);
-
+  _expenseUpdate(expense){
+    const expenseItems = [
+      expense,
+      ...this.state.expenseItems
+    ]
     this.setState({
-      category: categoryArray,
-      descriptor: descriptorArray,
-      amount: amountArray
+      expenseItems: expenseItems
     })
   }
 
@@ -48,8 +51,8 @@ class NewMonth extends React.Component {
     return(
       <div>
         <DateIncome dateIncomeUpdate={ this._dateIncomeUpdate.bind(this) } />
-        <ExpenseForm expenseUpdate={ this._expenseUpdate.bind(this) } />
-        <ResultsContainer date={ this.state.date } income={ this.state.income } category={ this.state.category } descriptor={ this.state.descriptor } amount={ this.state.amount } currentCategory={ this.state.currentCategory } />
+        <ExpenseForm expenseUpdate={ this._expenseUpdate.bind(this) } categories={ this.state.categories } />
+        <ResultsContainer date={ this.state.date } income={ this.state.income } categories={ this.state.categories } expenseItems={ this.state.expenseItems } />
       </div>
     );
   }
